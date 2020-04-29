@@ -16,6 +16,6 @@ def run(mm):
 ```
 运行程序，目录下python3 main.py
 
-![](https://github.com/haysengithub/ctftools/res/gui.JPG)
+![](https://github.com/haysengithub/ctftools/blob/master/res/gui.JPG)
 用法就不多说了吧，其实我已经写了很多插件，稍后慢慢上去  
 
