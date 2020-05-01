@@ -8,12 +8,19 @@ plugin_info = "base64解密"
 
 
 def run(mm):
-    out = base64.b64decode(mm.encode('utf-8'))
-    try:
-        out = out.decode("utf-8")
-    except:
+    out =""
+    mm = mm.split("\n")
+    for i in mm:
+        if i =="":
+            continue
+        line = i.strip()
+        xx = base64.b64decode(line.encode('utf-8'))
         try:
-            out = out.decode("gb2312")
+            out += xx.decode("utf-8")
         except:
-            out += b"\r\n"+binascii.b2a_hex(out)
+            try:
+                out += xx.decode("gb2312")
+            except:
+                out += b"\r\n"+binascii.b2a_hex(xx)
+        out += "\r\n"
     return out
