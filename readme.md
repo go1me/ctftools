@@ -17,12 +17,13 @@ def run(mm):
     return base64.b64encode(mm.encode('utf-8'))
 ```  
   
-插件支持自动分组到menu，只要你的plugin_name里含有 加密/编码  解密/解码 转 等字段，就会按照功能自动分组到相应menu
-运行程序，目录下python3 main.py
+插件支持自动分组到menu，只要你的plugin_name里含有 加密/编码  解密/解码 转 等字段，就会按照功能自动分组到相应menu  
+
 
 ![](https://github.com/haysengithub/ctftools/blob/master/res/gui.JPG)
 用法：  
-1、首先通过菜单或者下拉框选择插件  
+根目录下python3 main.py运行程序    
+1、通过菜单或下拉框选择插件  
 2、在输入框输入需要操作的字符/或者选择文件菜单导入字符到输入框  
 3、点击run
 4、查看输入框  
