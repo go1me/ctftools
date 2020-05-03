@@ -7,6 +7,7 @@ plugin_info = '''rsa各种攻击方法参考
 https://blog.csdn.net/weixin_41038905/article/details/105827655
 https://findneo.github.io/180727rsa-attack/
 https://github.com/findneo/RSA-ATTACK
+不用点run，这个没有实现方法
 '''
 
 
