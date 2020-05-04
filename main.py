@@ -55,9 +55,9 @@ def get_plugin_info(plugin):
     try:
         if plugin["module"] is not None:
             result = "插件名称:"+plugin["module"].plugin_name
-            result += "\r\n插件版本:"+plugin["module"].plugin_version
-            result += "\r\n插件作者:"+plugin["module"].plugin_author
-            result += "\r\n编写时间:"+plugin["module"].plugin_time
+            result += "\t\t版本:"+plugin["module"].plugin_version
+            result += "\t\t作者:"+plugin["module"].plugin_author
+            result += "\t\t时间:"+plugin["module"].plugin_time
             result += "\r\n插件简介:"+plugin["module"].plugin_info
     except:
         pass
@@ -121,6 +121,11 @@ def output_2_file():
 def cp_plugin_path():
     pyperclip.copy(plugin_now["path"])
 
+def test_2_input():
+    if "plugin_test_in" in dir(plugin_now["module"]):
+        input_txt.delete("0.0","end")
+        input_txt.insert("insert", plugin_now["module"].plugin_test_in)
+
 def menu_callback(arg):
     global plugin_now
     output_txt.delete("0.0","end")
@@ -148,11 +153,13 @@ editmenu.add_command(label="清空", command= delete_txt)
 editmenu.add_command(label="复制输出", command= copy_to_pc)
 editmenu.add_command(label="输出变输入", command= out_to_in)
 editmenu.add_command(label="复制当前插件路径", command= cp_plugin_path)
+editmenu.add_command(label="导入测试用例", command= test_2_input)
 menubar.add_cascade(label="编辑", menu=editmenu)
 #---------------------------------------
 decodemenu = tkinter.Menu(menubar,tearoff=False)
 encodemenu = tkinter.Menu(menubar,tearoff=False)
 exchangemenu = tkinter.Menu(menubar,tearoff=False)
+rsamenu = tkinter.Menu(menubar,tearoff=False)
 othermenu = tkinter.Menu(menubar,tearoff=False)
 for i in plugins_dict:
     if "解密" in i or "解码" in i:
@@ -161,12 +168,15 @@ for i in plugins_dict:
         encodemenu.add_command(label=i, command=lambda arg=i:menu_callback(arg))
     elif "转" in i:
         exchangemenu.add_command(label=i, command=lambda arg=i:menu_callback(arg))
+    elif "rsa" in i:
+        rsamenu.add_command(label=i, command=lambda arg=i:menu_callback(arg))
     else:
         othermenu.add_command(label=i, command=lambda arg=i:menu_callback(arg))
 
 menubar.add_cascade(label="解密", menu=decodemenu)
 menubar.add_cascade(label="加密", menu=encodemenu)
 menubar.add_cascade(label="转换", menu=exchangemenu)
+menubar.add_cascade(label="rsa", menu=rsamenu)
 menubar.add_cascade(label="其他", menu=othermenu)
 
 #显示菜单
@@ -192,12 +202,12 @@ input_txt.place(x=0,  y=100, width=1024, height=250)
 
 tkinter.Label(root, text="输出", font="tahoma 12 normal").place(x=20, y=370)
 output_txt = tkinter.Text(root)
-output_txt.place(x=0,  y=400, width=1024, height=250)
+output_txt.place(x=0,  y=400, width=1024, height=330)
 plugin_now, _ = get_plugin_now(list(plugins_dict.keys())[0])
 output_txt.insert("insert", get_plugin_info(plugin_now))
 
 info_text = tkinter.StringVar()
 info = tkinter.Label(root, textvariable= info_text, font="tahoma 12 normal")
-info.place(x=5, y=650)
+info.place(x=5, y=730)
 info_text.set("当前插件："+plugin_now["path"])
 root.mainloop()

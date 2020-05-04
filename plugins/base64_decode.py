@@ -21,6 +21,6 @@ def run(mm):
             try:
                 out += xx.decode("gb2312")
             except:
-                out += b"\r\n"+binascii.b2a_hex(xx)
+                out += "无法转成utf8或者gb3212，解码后的16禁止码为:\r\n"+binascii.b2a_hex(xx).decode("utf-8")
         out += "\r\n"
     return out
