@@ -10,6 +10,8 @@ plugin_name = "base64加密" #插件名称，重要，不能重复，必选
 plugin_version = "v1.1"
 plugin_author = "1me"
 plugin_time = "20200429"
+plugin_test_in="ysqu"#测试用例的输入
+plugin_test_out="flag"#测试用例的输出
 plugin_info = "base64加密，需要import base64" #插件信息，可以写一些demo，必选
 
 #插件运行函数
