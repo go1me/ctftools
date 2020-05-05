@@ -15,7 +15,7 @@ plugin_name = "base解密全家桶"
 plugin_version = "v1.1"
 plugin_author = "1me"
 plugin_time = "20200505"
-plugin_test_in="None"
+plugin_test_in="ZmxhZw=="
 plugin_test_out="None"
 plugin_info = '''
 对输入的字符串进行base 16 24 32 36 58 62 64 85 91 92 128解密

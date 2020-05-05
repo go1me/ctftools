@@ -9,12 +9,6 @@ plugin_info = '''
 \t$ stat --printf=%Y  ecrypt1.bin 
 \t1416667590
 2、hexdump命令,  hexdump -C -n 20 abc.png 
-
-from ctypes import *
-    libc = cdll.LoadLibrary("/lib/x86_64-linux-gnu/libc.so.6")
-    libc.srand(1416667590)
-    libc.rand()
-    
 '''
 
 
