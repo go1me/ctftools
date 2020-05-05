@@ -162,7 +162,7 @@ exchangemenu = tkinter.Menu(menubar,tearoff=False)
 rsamenu = tkinter.Menu(menubar,tearoff=False)
 othermenu = tkinter.Menu(menubar,tearoff=False)
 for i in plugins_dict:
-    if "解密" in i or "解码" in i:
+    if "解密" in i or "解码" in i or "暴力破解" in i:
         decodemenu.add_command(label=i, command=lambda arg=i:menu_callback(arg))
     elif "加密" in i or "编码" in i:
         encodemenu.add_command(label=i, command=lambda arg=i:menu_callback(arg))
