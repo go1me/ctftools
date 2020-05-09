@@ -8,7 +8,6 @@ plugin_info = '''
 参考
 https://blog.csdn.net/weixin_42109012/article/details/97532738?utm_medium=distribute.pc_relevant.none-task-blog-baidujs-4
 '''
-plugin_info+="例子\r\n输入\r\n"+plugin_test_in+"\r\n输出\r\n"+plugin_test_out
 
 letter = {
     'q': 'a', 'w': 'b', 'e': 'c', 'r': 'd', 't': 'e', 'y': 'f', 'u': 'g',
@@ -26,5 +25,9 @@ letter = {
 def run(letters):
     flag = ''
     for i in range(0, len(letters)):
-        flag = flag + letter.get(letters[i])
+        mm =  letters[i]
+        if mm.isalpha():
+            flag += letter.get(mm)
+        else:
+            flag += mm
     return flag
