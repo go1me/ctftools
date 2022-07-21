@@ -3,7 +3,10 @@ from tkinter import ttk
 from tkinter import filedialog
 import pyperclip
 import os
-import imp
+#import imp
+#import importlib
+
+import importlib.machinery
 
 root = tkinter.Tk()
 root.title("ctftools by 1me")
@@ -42,8 +45,9 @@ for root_path, dirs, files in os.walk(plugin_path):
 def get_plugin_now(val_name):
     if val_name in plugins_dict.keys():
         if plugins_dict[val_name]["module"] is None:
-            try:
-                plugins_dict[val_name]["module"] = imp.load_source(plugins_dict[val_name]["name"], plugins_dict[val_name]["path"])
+            try: 
+                plugins_dict[val_name]["module"] = importlib.machinery.SourceFileLoader(plugins_dict[val_name]["name"], plugins_dict[val_name]["path"]).load_module()
+                #imp.load_source(plugins_dict[val_name]["name"], plugins_dict[val_name]["path"])
             except Exception as e:
                 return None, plugins_dict[val_name]["path"]+"加载失败\r\n"+str(e)
         plugin_now = plugins_dict[val_name]
@@ -203,7 +207,7 @@ input_txt.place(x=0,  y=100, width=1024, height=250)
 tkinter.Label(root, text="输出", font="tahoma 12 normal").place(x=20, y=370)
 output_txt = tkinter.Text(root)
 output_txt.place(x=0,  y=400, width=1024, height=330)
-plugin_now, _ = get_plugin_now(list(plugins_dict.keys())[0])
+plugin_now, errosss = get_plugin_now(list(plugins_dict.keys())[0])
 output_txt.insert("insert", get_plugin_info(plugin_now))
 
 info_text = tkinter.StringVar()

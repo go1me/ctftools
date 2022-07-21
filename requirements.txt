@@ -1,0 +1,11 @@
+base128==0.1.1
+base36==0.1.1
+base58==2.1.1
+base91==1.0.1
+base92==1.0.3
+pybase62==0.5.0
+crypto_commons==0.0.4
+libnum==1.7.1
+pybase24==1.0.0
+pyperclip==1.8.2
+requests==2.28.1
